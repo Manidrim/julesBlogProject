@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<h1>Admin Dashboard</h1>
+<p>Welcome, <%= user.username %>!</p>
+
+<div class="list-group">
+  <a href="/admin/articles" class="list-group-item list-group-item-action">Manage Articles</a>
+  <a href="/admin/articles/new" class="list-group-item list-group-item-action">Create New Article</a>
+</div>
+
+<%- include('../partials/footer') %>
