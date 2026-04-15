@@ -20,7 +20,7 @@ router.post('/login', (req, res, next) => {
 
 // @route   GET /auth/logout
 // @desc    Logout user
-router.get('/logout', (req, res) => {
+router.get('/logout', (req, res, next) => {
   req.logout(function(err) {
     if (err) { return next(err); }
     req.flash('success_msg', 'You are logged out');
