@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<div class="row">
+  <div class="col-md-8">
+    <article class="blog-post">
+      <h2 class="blog-post-title"><%= article.title %></h2>
+      <p class="blog-post-meta"><%= article.createdAt.toDateString() %></p>
+
+      <div>
+        <%- article.content %>
+      </div>
+    </article>
+    <a href="/" class="btn btn-secondary mt-3">Back to Articles</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

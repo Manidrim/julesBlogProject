@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Article</h1>
+
+<form action="/admin/articles/<%= article.id %>?_method=PUT" method="POST">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value="<%= article.title %>" required>
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">Content</label>
+    <textarea class="form-control" id="content" name="content" rows="10" required><%= article.content %></textarea>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="published" name="published" <%= article.published ? 'checked' : '' %>>
+    <label class="form-check-label" for="published">Publish</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Update Article</button>
+  <a href="/admin/articles" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include('../partials/footer') %>

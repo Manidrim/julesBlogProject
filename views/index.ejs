@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="pb-4 mb-4 fst-italic border-bottom">
+      From the Firehose
+    </h1>
+
+    <% articles.forEach(article => { %>
+      <article class="blog-post">
+        <h2 class="blog-post-title"><%= article.title %></h2>
+        <p class="blog-post-meta"><%= article.createdAt.toDateString() %></p>
+
+        <div>
+          <%- article.content.substring(0, 200) %>...
+        </div>
+        <a href="/articles/<%= article.id %>">Read More</a>
+      </article>
+      <hr>
+    <% }) %>
+
+    <% if (articles.length === 0) { %>
+      <p>No articles to show.</p>
+    <% } %>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
