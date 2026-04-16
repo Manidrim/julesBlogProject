@@ -4,7 +4,12 @@ const User = require('./models/user');
 
 const db = process.env.MONGODB_URI;
 
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+if (!db) {
+  console.error('Error: MONGODB_URI environment variable is not set.');
+  process.exit(1);
+}
+
+mongoose.connect(db)
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 

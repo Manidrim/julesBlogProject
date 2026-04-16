@@ -4,8 +4,13 @@ const mongoose = require('mongoose');
 // DB Config
 const db = process.env.MONGODB_URI;
 
+if (!db) {
+  console.error('Error: MONGODB_URI environment variable is not set.');
+  process.exit(1);
+}
+
 // Connect to MongoDB
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db)
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
